@@ -4,6 +4,7 @@ dotenv.config();
 import express from "express";
 import cors from 'cors';
 import mongoose from "mongoose";
+import authRoutes from './routes/authRoutes.js';
 
 const app = express();
 // Middleware configuration
@@ -15,8 +16,8 @@ app.use(cors({
 }));
 
 
-//TODO app to use routes
-
+// Routes configuration
+app.use('/auth', authRoutes)
 
 const connectDB = async () => {
     try {
